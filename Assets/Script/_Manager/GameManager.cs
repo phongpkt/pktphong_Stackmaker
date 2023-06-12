@@ -10,7 +10,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        ChangeState(GameState.MainMenu);
+        ChangeState(GameState.GamePlay);
     }
 
     public void ChangeState(GameState gameState)

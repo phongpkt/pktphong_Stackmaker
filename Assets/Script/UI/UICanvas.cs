@@ -13,13 +13,17 @@ public enum UIID
 
 public class UICanvas : MonoBehaviour
 {
-    public bool IsDestroyOnClose = false;
+    public bool IsDestroyOnClose;
 
     public UIID ID;
     protected RectTransform m_RectTransform;
     private Animator m_Animator;
     private float m_OffsetY = 0;
-    
+
+    private void Awake()
+    {
+        IsDestroyOnClose = true;
+    }
     private void Start()
     {
         OnInit();
@@ -50,8 +54,8 @@ public class UICanvas : MonoBehaviour
     //set up mac dinh cho UI de tranh truong hop bi nhay' hinh
     public virtual void dSetup()
     {
-        //UIManager.Ins.AddBackUI(this);
-        //UIManager.Ins.PushBackAction(this, BackKey);
+        UIManager.Ins.AddBackUI(this);
+        UIManager.Ins.PushBackAction(this, BackKey);
     }
 
 
@@ -73,7 +77,7 @@ public class UICanvas : MonoBehaviour
     //dong truc tiep, ngay lap tuc
     public virtual void CloseDirectly()
     {
-        //UIManager.Ins.RemoveBackUI(this);
+        UIManager.Ins.RemoveBackUI(this);
         gameObject.SetActive(false);
         if (IsDestroyOnClose)
         {

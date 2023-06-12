@@ -363,7 +363,6 @@ public class Player : MonoBehaviour
             moveDirection = Vector3.zero;
             moveDirection = new Vector3(-400f, 0f, 0f); // Left
             isBack = false;
-            Debug.Log("aoma");
             return;
         }
         if(checkPush && checkTurnRight && isBack && checkWall)
